@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainController@homepage')->name('homepage');
+Route::get('first', 'MainController@postList')->name('postList');
