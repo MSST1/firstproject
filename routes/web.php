@@ -12,4 +12,9 @@
 */
 Auth::routes();
 Route::get('/', 'MainController@homepage')->name('homepage');
-Route::get('first', 'MainController@postList')->name('postList');
+
+Route::prefix('posts')->group(function(){
+  Route::get('', 'PostController@postList')->name('postList');
+  Route::get('create', 'PostController@createPost')->name('createPost');
+  Route::post('save', 'PostController@savePost')->name('savePost');
+});

@@ -4,7 +4,14 @@
   <body>
     @include('parts.__navbar')
       <div class="container">
-        @yield('content')
+        <div class="row">
+          <div class="col-md-2">
+            @include('widgets.leftSidebar')
+          </div>
+          <div class="col-md-10">
+            @yield('content')
+          </div>
+        </div>
       </div>
 @include('parts.__JS')
 </body>

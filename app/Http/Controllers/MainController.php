@@ -16,8 +16,4 @@ class MainController extends Controller
     {
       return view('pages.home'); //Сюда список последних постов
     }
-    public function postList()
-    {
-      return view('pages.postList'); //Список всех постов
-    }
 }
