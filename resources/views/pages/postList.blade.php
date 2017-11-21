@@ -6,5 +6,4 @@
 
 @section('content')
    first link <br>
-   {{ uselessFunc() }}
 @endsection
