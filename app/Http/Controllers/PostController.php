@@ -24,4 +24,9 @@ class PostController extends Controller
     $post->save();
     return redirect('/posts');
   }
+  public function showPost($id)
+  {
+    $post = Post::find($id);
+    return view('pages.showPost', ['post' => $post]);
+  }
 }

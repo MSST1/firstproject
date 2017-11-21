@@ -17,4 +17,5 @@ Route::prefix('posts')->group(function(){
   Route::get('', 'PostController@postList')->name('postList');
   Route::get('create', 'PostController@createPost')->name('createPost');
   Route::post('save', 'PostController@savePost')->name('savePost');
+  Route::get('{id}', 'PostController@showPost')->name('showPost');
 });
