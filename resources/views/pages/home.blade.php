@@ -1,9 +1,16 @@
 @extends('base')
 
 @section('title')
-  Nothing interesting
+  Yet another blog
 @endsection
 
 @section('content')
-   home page
+<h3>Последние посты</h3>
+<div class="col-md-8">
+  <div class="row masonry" data-columns>
+  @foreach($content as $post)
+    @include('widgets.postCard')
+  @endforeach
+  </div>
+</div>
 @endsection

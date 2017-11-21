@@ -1,1 +1,2 @@
-<p>Just left sidebar</p>
+<p>Just left sidebar</p><br>
+Что здесь можно поместить?

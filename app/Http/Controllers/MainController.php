@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class MainController extends Controller
 {
@@ -14,6 +15,7 @@ class MainController extends Controller
 
     public function homepage()
     {
-      return view('pages.home'); //Сюда список последних постов
+      $lastPosts = Post::latest('created_at')->limit(3)->get();
+      return view('pages.home', ['content' => $lastPosts]); //Сюда список последних постов
     }
 }
