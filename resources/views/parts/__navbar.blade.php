@@ -21,10 +21,8 @@
        <li><a href="{{ route('login') }}">Войти</a></li>
        <li><a href="{{ route('register') }}">Зарегистрироваться</a></li>
     @else
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-           {{ Auth::user()->login }} <span class="caret"></span>
-          </a>
+        <li>
+           <a href="#">{{ Auth::user()->name }}</a> <!-- А здесь( в теории) будет личный кабинет -->
         </li>
         <li><a href="{{ route('logout') }}"onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Logout</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }} </form>
