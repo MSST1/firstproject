@@ -14,11 +14,10 @@ class MainController extends Controller
 
     public function homepage()
     {
-      return view('pages.home');
+      return view('pages.home'); //Сюда список последних постов
     }
     public function postList()
     {
-
-      return view('pages.postList');
+      return view('pages.postList'); //Список всех постов
     }
 }
