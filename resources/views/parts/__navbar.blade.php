@@ -8,27 +8,16 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="">Блог</a>
+  <a class="navbar-brand" href="/">Блог</a>
 </div>
 <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   <ul class="nav navbar-nav">
     <li><a href="{{ route('postList') }}">Список постов</a></li>
+    <li><a href="{{ route('createPost') }}">Создать пост</a></li>
   </ul>
   <div class="col-sm-4 pull-right">
-  <ul class="nav navbar-nav navbar-right">
-    @if (Auth::guest())
-       <li><a href="{{ route('login') }}">Войти</a></li>
-       <li><a href="{{ route('register') }}">Зарегистрироваться</a></li>
-    @else
-        <li>
-           <a href="#">{{ Auth::user()->name }}</a> <!-- А здесь( в теории) будет личный кабинет -->
-        </li>
-        <li><a href="{{ route('logout') }}"onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Logout</a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }} </form>
-          </li>
-    @endif
-     </ul>
+  @include('widgets.navigationAuthBlock')
   </div>
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->

@@ -12,4 +12,14 @@
 */
 Auth::routes();
 Route::get('/', 'MainController@homepage')->name('homepage');
-Route::get('first', 'MainController@postList')->name('postList');
+Route::get('relations', 'MainController@relations');
+
+Route::prefix('posts')->group(function(){
+  Route::get('', 'PostController@postList')->name('postList');
+  Route::get('create', 'PostController@createPost')->name('createPost');
+  Route::post('save', 'PostController@savePost')->name('savePost');
+  Route::post('delete', 'PostController@deletePost')->name('deletePost');
+  Route::get('{id}', 'PostController@showPost')->name('showPost');
+  Route::get('{id}/edit', 'PostController@editPost')->name('editPost');
+  Route::post('{id}/update', 'PostController@updatePost')->name('updatePost');
+});

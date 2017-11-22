@@ -1,9 +1,15 @@
 @extends('base')
 
 @section('title')
-  Wow! Something has changed
+  PostFeed
 @endsection
 
 @section('content')
-   first link <br>
+<div class="col-md-8">
+  <div class="row masonry" data-columns>
+    @foreach($content as $post)
+      @include('widgets.postCard')
+    @endforeach
+  </div>
+</div>
 @endsection

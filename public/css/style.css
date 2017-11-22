@@ -1,6 +1,9 @@
 *{
 
 }
+.centering{
+  left:50%;
+}
 
 @media screen and (max-width:767px){
   .masonry[data-columns]::before{
