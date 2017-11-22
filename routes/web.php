@@ -12,6 +12,7 @@
 */
 Auth::routes();
 Route::get('/', 'MainController@homepage')->name('homepage');
+Route::get('relations', 'MainController@relations');
 
 Route::prefix('posts')->group(function(){
   Route::get('', 'PostController@postList')->name('postList');

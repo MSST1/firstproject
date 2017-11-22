@@ -13,9 +13,22 @@ class CreatePostTagPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('Post_tag', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create('post_tag', function (Blueprint $table) {
+            $table->integer('post_id')->unsigned()->nullable();
+            $table->foreign('post_id')
+              ->references('id')
+              ->on('posts')
+              ->onUpdate('cascade')
+              ->onDelete('cascade');
+
+            $table->integer('tag_id')->unsigned()->nullable();
+            $table->foreign('tag_id')
+              ->references('id')
+              ->on('tags')
+              ->onUpdate('cascade')
+              ->onDelete('cascade');
+
+
         });
     }
 

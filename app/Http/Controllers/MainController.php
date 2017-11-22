@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\User;
 
 class MainController extends Controller
 {
@@ -17,5 +19,11 @@ class MainController extends Controller
     {
       $lastPosts = Post::latest('created_at')->limit(3)->get();
       return view('pages.home', ['content' => $lastPosts]); //Сюда список последних постов
+    }
+    public function relations()
+    {
+      $user = Auth::user();
+      dump($user->posts->first()->title);
+      return 'OK';
     }
 }
