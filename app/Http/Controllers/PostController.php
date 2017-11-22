@@ -34,4 +34,13 @@ class PostController extends Controller
     $post = Post::find($id);
     return view('pages.editPost', ['post' => $post]);
   }
+  public function updatePost(Request $request, $id)
+  {
+    $this->validate($request,config('postValidation'));
+    $post = Post::find($id);
+    $post->title = $request->title;
+    $post->content = $request->text;
+    $post->save();
+    return redirect('/posts');
+  }
 }

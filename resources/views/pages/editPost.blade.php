@@ -8,7 +8,7 @@
   <div class="col-md-6">
     <h1>Редактирование поста</h1>
   </div>
-<form class="" action="{{route('savePost')}}" method="post">
+<form class="" action="{{route('updatePost', $post->id)}}" method="post">
     {{ csrf_field() }}
     <input class="form-control" type="text" name="title" placeholder="Тема поста" value="{{ $post->title }}"><br>
     @if ($errors->has('title'))

@@ -20,4 +20,5 @@ Route::prefix('posts')->group(function(){
   Route::post('delete', 'PostController@deletePost')->name('deletePost');
   Route::get('{id}', 'PostController@showPost')->name('showPost');
   Route::get('{id}/edit', 'PostController@editPost')->name('editPost');
+  Route::post('{id}/update', 'PostController@updatePost')->name('updatePost');
 });
