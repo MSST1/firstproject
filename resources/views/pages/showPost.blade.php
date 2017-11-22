@@ -20,9 +20,5 @@
       <a class="btn btn-primary" role="button" href="{{ $post->id }}/edit/">Редактировать текст</a><br><br>
     </div>
     <div class="col-md-2">
-      <form class="" action="{{ route('deletePost', [ 'title' => $post->title ] ) }}" method="post">
-        {{ csrf_field() }}
-        <button type="submit" class="btn btn-danger">Удалить текст</button>
-      </form>
   </div>
 @endsection
