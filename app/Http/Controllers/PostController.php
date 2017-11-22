@@ -29,4 +29,9 @@ class PostController extends Controller
     $post = Post::find($id);
     return view('pages.showPost', ['post' => $post]);
   }
+  public function editPost($id)
+  {
+    $post = Post::find($id);
+    return view('pages.editPost', ['post' => $post]);
+  }
 }
