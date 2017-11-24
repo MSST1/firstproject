@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use App\Mail\FeedbackUserMail;
 use App\Models\Post;
 use App\Models\Category;
 use App\User;
+use Session;
 
 class MainController extends Controller
 {
@@ -34,5 +37,12 @@ class MainController extends Controller
     public function contacts()
     {
       return view('pages.contacts');
+    }
+    public function feedbackSending(Request $request)
+    {
+      $this->validate($request, config('feedbackValidation'));
+      Mail::to($request->email)->send(new FeedbackUserMail());
+      Session::flash('success', 'Ваша заявка успешно принята, спасибо за обращение.');
+      return redirect('/contacts');
     }
 }
