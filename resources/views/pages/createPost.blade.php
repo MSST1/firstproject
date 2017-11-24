@@ -18,6 +18,15 @@
     @if ($errors->has('text'))
       <div class="alert alert-danger">{{ $errors->first('text') }}</div>
     @endif
+    <div class="row">
+      <div class="col-md-12">
+        <select class="form-control" name="category">
+            @foreach($categories as $category)
+                <option label="">{{ $category->categoryName }}</option>
+            @endforeach
+        </select>
+      </div>
+    </div><br>
     <div class="col-md-4 col-md-offset-4">
        <input class="form-control btn-success" type="submit" name="" value="Принять">
     </div>

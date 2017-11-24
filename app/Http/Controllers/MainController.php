@@ -26,12 +26,7 @@ class MainController extends Controller
     }
     public function relations()
     {
-      $cat = Category::find('1');
-      dump($cat->categoryName);
-      $catId = Category::where('categoryName', $cat->categoryName)->first();
-      $catIdNull = Category::where('categoryName', 'gfdsgdfs')->first();
-      dump($catId->id);
-      dump($catIdNull);
+      dump(Auth::user()->id);
       return 'OK';
     }
     public function contacts()
