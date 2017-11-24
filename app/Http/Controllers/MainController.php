@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 use App\User;
 
 class MainController extends Controller
@@ -22,8 +23,12 @@ class MainController extends Controller
     }
     public function relations()
     {
-      $user = Auth::user();
-      dump($user->posts->first()->title);
+      $cat = Category::find('1');
+      dump($cat->categoryName);
+      $catId = Category::where('categoryName', $cat->categoryName)->first();
+      $catIdNull = Category::where('categoryName', 'gfdsgdfs')->first();
+      dump($catId->id);
+      dump($catIdNull);
       return 'OK';
     }
 }

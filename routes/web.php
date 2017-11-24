@@ -13,6 +13,7 @@
 Auth::routes();
 Route::get('/', 'MainController@homepage')->name('homepage');
 Route::get('relations', 'MainController@relations');
+Route::get('category/{categoryName}', 'PostController@categoryShow')->name('categoryShow');
 
 Route::prefix('posts')->group(function(){
   Route::get('', 'PostController@postList')->name('postList');
