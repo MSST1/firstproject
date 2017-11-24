@@ -31,4 +31,8 @@ class MainController extends Controller
       dump($catIdNull);
       return 'OK';
     }
+    public function contacts()
+    {
+      return view('pages.contacts');
+    }
 }
