@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -11,6 +12,15 @@ class PostController extends Controller
   {
     $posts = Post::all();
     return view('pages.postList', ['content' => $posts]); //Список всех постов
+  }
+  public function categoryShow($categoryName)
+  {
+    $category = Category::where('categoryName','=',$categoryName)->first();
+    if ($category == null){
+      abort(404);
+    }
+    $posts = Post::where('category_id','=',$category->id)->get();
+    return view('pages.postList',['content' => $posts]);
   }
   public function createPost()
   {

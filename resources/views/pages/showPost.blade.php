@@ -13,6 +13,8 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-1" style="min-height:350px;">
       {{ $post->content }}
+      <br><br>
+      Категория: {{ $post->category->categoryName }}
     </div>
   </div>
   <div class="row">
