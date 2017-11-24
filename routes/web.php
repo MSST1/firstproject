@@ -14,6 +14,8 @@ Auth::routes();
 Route::get('/', 'MainController@homepage')->name('homepage');
 Route::get('relations', 'MainController@relations');
 Route::get('category/{categoryName}', 'PostController@categoryShow')->name('categoryShow');
+Route::get('contacts', 'MainController@contacts')->name('contacts');
+Route::post('feedbackSending', 'MainController@feedbackSending')->name('feedbackSending');
 
 Route::prefix('posts')->group(function(){
   Route::get('', 'PostController@postList')->name('postList');
