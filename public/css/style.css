@@ -11,9 +11,22 @@ Author URI: https://www.zerotheme.com/
 a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}
 article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {display:block;}
 mark, rp, rt, ruby, summary, time {display:inline;}
-input, textarea {border:0; padding:0; margin:0; outline: 0;}
-iframe {border:0; margin:0; padding:0;}
-input, textarea, select {margin:0; padding:0px;}
+input, textarea {
+  border:0;
+  padding:0;
+  margin:0;
+  outline:0;
+  resize:none;
+}
+iframe {
+  border:0;
+  margin:0;
+  padding:0;
+}
+input, textarea, select {
+  margin:0;
+  padding:0px;
+}
 
 
 /* ---------------------------------------------------------------------------- */
@@ -121,17 +134,17 @@ header{text-align: center;background: #fff;}
 .content-box.box-3 blockquote:before {top: 0;left: 0;content: "\201C"; }
 .content-box.box-3 blockquote:after {top: 0;right: 0;content: "\201D"; }
 @media only screen and (max-width: 1100px) {
- .content-box.box-3 blockquote {font-size: 22px; } 
+ .content-box.box-3 blockquote {font-size: 22px; }
  }
 @media only screen and (max-width: 960px) {
  .content-box.box-3 blockquote {padding: 30px 40px;font-size: 22px; }
- .content-box.box-3 blockquote:before, .content-box.box-3 blockquote:after {width: 25px;height: 25px;font-size: 47px; } 
+ .content-box.box-3 blockquote:before, .content-box.box-3 blockquote:after {width: 25px;height: 25px;font-size: 47px; }
  }
 @media only screen and (max-width: 690px) {
  .content-box.box-3 blockquote {padding: 10px 20px;font-size: 20px; }
- .content-box.box-3  blockquote:before, .content-box.box-3 blockquote:after {font-size: 19px; } 
+ .content-box.box-3  blockquote:before, .content-box.box-3 blockquote:after {font-size: 19px; }
  }
- 
+
 .content-box.box-4 .wrap-box{padding: 0;}
 .content-box.box-4 article{padding-bottom: 0;background: #f9f9f9;margin:0;}
 
@@ -210,8 +223,22 @@ footer .bottom-social i.fa{font-size: 24px;margin-right: 12px;}
 #contact_form{background: #f7f7f7;}
 #contact_form, #comment {padding:20px 30px;}
 
-#contact_form .sendButton , #comment_form .sendButton {cursor:pointer;background-color:#575756;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;width:20%;color:#ffffff;margin-top: 50px;}
-#contact_form .sendButton:hover , #comment_form .sendButton:hover{opacity: 0.8;}
+#contact_form .sendButton , #comment_form .sendButton {
+  cursor:pointer;
+  background-color:#575756;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  width:20%;
+  color:#ffffff;
+  margin-top: 5px;
+}
+#contact_form .sendButton:hover , #comment_form .sendButton:hover{
+  opacity: 0.8;
+}
+.form-control textarea{
+  resize:none;
+}
 
 /* ---------------------------------------------------------------------------- */
 /* -------------------------------------Button--------------------------------- */

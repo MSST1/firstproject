@@ -1,0 +1,47 @@
+@extends('base')
+
+@section('title')
+Написать мне
+@endsection
+
+@section('content')
+<section class="content-box zerogrid">
+		<div class="row wrap-box"><!--Start Box-->
+			<h3 class="t-center" style="font-size:30px;margin: 10px 0 30px">Свяжитесь со мной!</h3>
+			<div id="contact_form">
+        @include('widgets.__flashMessages')
+				<form name="form1" id="ff" method="post" action="{{ route('feedbackSending') }}">
+          {{ csrf_field() }}
+          <label class="row">
+						<div class="col-1-2">
+							<div class="wrap-col">
+								<input type="text" name="author" id="name" placeholder="Как к вам обращаться?*" />
+							</div>
+              @if ($errors->has('author'))
+                <div class="alert alert-danger text-center">{{ $errors->first('author') }}</div>
+              @endif
+						</div>
+						<div class="col-1-2">
+							<div class="wrap-col">
+								<input type="text" name="email" id="email" placeholder="Ваш email*"/>
+							</div>
+              @if ($errors->has('email'))
+                <div class="alert alert-danger text-center">{{ $errors->first('email') }}</div>
+              @endif
+						</div>
+					</label>
+					<label class="row">
+						<div class="wrap-col">
+							<textarea name="text" id="message" class="form-control" rows="4" cols="25"
+							placeholder="Текст обращения*"></textarea>
+						</div>
+            @if ($errors->has('text'))
+              <div class="alert alert-danger text-center">{{ $errors->first('text') }}</div>
+            @endif
+					</label>
+					<center><input class="sendButton" type="submit" name="submitcontact" value="Отправить!"></center>
+				</form>
+			</div>
+		</div>
+</section>
+@endsection

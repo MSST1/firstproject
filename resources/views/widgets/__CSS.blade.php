@@ -1,9 +1,10 @@
 <!-- CSS
 ================================================== -->
-<link rel="stylesheet" href="css/zerogrid.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href={{asset('css/zerogrid.css')}}>
+<link rel="stylesheet" href={{asset('css/style.css')}}>
+<link rel="stylesheet" href={{asset('css/myStyles.css')}}>
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href={{asset('font-awesome/css/font-awesome.min.css')}} type="text/css">
+<link rel="stylesheet" href={{asset('css/menu.css')}}>
 <!-- Owl Carousel Assets -->
-<link href="owl-carousel/owl.carousel.css" rel="stylesheet">
+<link rel="stylesheet" href={{asset('owl-carousel/owl.carousel.css')}} >

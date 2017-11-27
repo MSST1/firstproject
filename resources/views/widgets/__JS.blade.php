@@ -1,8 +1,8 @@
 <script src="js/jquery1111.min.js" type="text/javascript"></script>
 <script src="js/script.js"></script>
 <!-- carousel -->
-<!-- <script src="owl-carousel/owl.carousel.js"></script>
-<script>
+<script src="owl-carousel/owl.carousel.js"></script>
+<!--<script>
 $(document).ready(function() {
   $("#owl-slide").owlCarousel({
   autoPlay: 3000,
