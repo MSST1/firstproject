@@ -13,7 +13,7 @@ class PostController extends Controller
   public function postList()
   {
     $posts = Post::all();
-    return view('pages.postList', ['content' => $posts]); //Список всех постов
+    // return view('pages.postList', ['content' => $posts]);Список всех постов
   }
   public function categoryShow($categoryName)
   {
@@ -22,11 +22,11 @@ class PostController extends Controller
       abort(404);
     }
     $posts = Post::where('category_id','=',$category->id)->get();
-    return view('pages.postList',['content' => $posts]);
+    // return view('pages.postList',['content' => $posts]);
   }
   public function createPost()
   {
-    return view('pages.createPost');
+    // return view('pages.createPost');
   }
   public function savePost(Request $request, Post $post)
   {
@@ -37,17 +37,17 @@ class PostController extends Controller
     $post->user_id = Auth::user()->id;
     $post->category_id = $category->id;
     $post->save();
-    return redirect('/posts');
+    // return redirect('/posts');
   }
   public function showPost($id)
   {
     $post = Post::find($id);
-    return view('pages.showPost', ['post' => $post]);
+    // return view('pages.showPost', ['post' => $post]);
   }
   public function editPost($id)
   {
     $post = Post::find($id);
-    return view('pages.editPost', ['post' => $post]);
+    // return view('pages.editPost', ['post' => $post]);
   }
   public function updatePost(Request $request, $id)
   {
@@ -56,6 +56,6 @@ class PostController extends Controller
     $post->title = $request->title;
     $post->content = $request->text;
     $post->save();
-    return redirect('/posts');
+    // return redirect('/posts');
   }
 }

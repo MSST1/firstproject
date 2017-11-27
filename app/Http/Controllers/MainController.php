@@ -22,7 +22,7 @@ class MainController extends Controller
     public function homepage()
     {
       $lastPosts = Post::latest('created_at')->limit(3)->get();
-      return view('pages.home', ['content' => $lastPosts]); //Сюда список последних постов
+      return view('base', ['content' => $lastPosts]); //Сюда список последних постов
     }
     public function relations()
     {
@@ -31,13 +31,13 @@ class MainController extends Controller
     }
     public function contacts()
     {
-      return view('pages.contacts');
+      // return view('pages.contacts');
     }
     public function feedbackSending(Request $request)
     {
       $this->validate($request, config('feedbackValidation'));
       Mail::to($request->email)->send(new FeedbackUserMail());
       Session::flash('success', 'Ваша заявка успешно принята, спасибо за обращение.');
-      return redirect('/contacts');
+      // return redirect('/contacts');
     }
 }
