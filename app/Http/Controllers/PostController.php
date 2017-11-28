@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\User;
+use Validator;
+use Session;
 
 class PostController extends Controller
 {
@@ -26,18 +28,24 @@ class PostController extends Controller
   }
   public function createPost()
   {
-    // return view('pages.createPost');
+    return view('pages.createPost');
   }
   public function savePost(Request $request, Post $post)
   {
-    $this->validate($request,config('postValidation'));
+    $validator = Validator::make($request->all(),config('postValidation'));
+    if ($validator->fails()){
+      Session::flash('fail', 'Статья не создана!');
+      return redirect('/posts/create')
+                      ->withErrors($validator)
+                      ->withInput();
+    }
     $category = Category::where('categoryName', $request->category)->first();
     $post->title = $request->title;
-    $post->content = $request->text;
+    $post->content = $request->content;
     $post->user_id = Auth::user()->id;
     $post->category_id = $category->id;
     $post->save();
-    // return redirect('/posts');
+    return redirect('/posts');
   }
   public function showPost($id)
   {

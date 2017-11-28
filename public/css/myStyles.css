@@ -1,4 +1,13 @@
 /* Alerts from bootstrap*/
+select {
+  display:block;
+  width:100%;
+  color:#222;
+  border:1px solid #d1d1d1;
+  padding:10px;
+  margin: 5px 0 20px 0;
+  font-size: 16px;
+}
 .alert {
   padding: 5px;
   margin-bottom: 20px;

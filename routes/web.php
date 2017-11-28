@@ -19,7 +19,7 @@ Route::post('feedbackSending', 'MainController@feedbackSending')->name('feedback
 
 Route::prefix('posts')->group(function(){
   Route::get('', 'PostController@postList')->name('postList');
-  Route::get('create', 'PostController@createPost')->name('createPost')->middleware('auth');
+  Route::get('create', 'PostController@createPost')->name('createPost');
   Route::post('save', 'PostController@savePost')->name('savePost');
   Route::post('delete', 'PostController@deletePost')->name('deletePost')->middleware('auth');
   Route::get('{id}', 'PostController@showPost')->name('showPost');
