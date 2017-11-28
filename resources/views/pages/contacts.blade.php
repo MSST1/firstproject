@@ -47,6 +47,10 @@
 @endsection
 
 @section('JS')
+<script type="text/javascript">
+	let activeMenuElement = document.querySelector("#contact-link");
+	activeMenuElement.classList.add("active");
+</script>
 	@if($errors->has('author'))
 		<script>
 			let erroredAuth = document.getElementById('author');;
