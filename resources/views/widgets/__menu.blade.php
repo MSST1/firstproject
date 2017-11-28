@@ -1,6 +1,7 @@
 <div id="cssmenu" class="align-center">
   <ul>
     <li class="active"><a href="{{ route('homepage') }}"><span>Блог</span></a></li>
+    <li><a href="{{ route('postList') }}"><span>Статьи</span></a></li>
     <li><a href="gallery.html"><span>Gallery</span></a></li>
     <li class="has-sub"><a href="archive.html"><span>Blog</span></a>
       <ul>
@@ -19,6 +20,6 @@
       </ul>
     </li>
     <li><a href="single.html"><span>About</span></a></li>
-    <li class="last"><a href="contacts/"><span>Контакты</span></a></li>
+    <li class="last"><a href="{{ route('contacts') }}"><span>Контакты</span></a></li>
   </ul>
 </div>

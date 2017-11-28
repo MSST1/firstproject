@@ -22,7 +22,7 @@ class PostController extends Controller
       abort(404);
     }
     $posts = Post::where('category_id','=',$category->id)->get();
-    // return view('pages.postList',['content' => $posts]);
+    return view('pages.postList',['content' => $posts]);
   }
   public function createPost()
   {

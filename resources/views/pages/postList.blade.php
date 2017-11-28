@@ -13,8 +13,8 @@
 					<div class="row wrap-post"><!--Start Box-->
 						<div class="entry-header">
 							<span class="time">{{ $post->updated_at }}</span>
-							<h2 class="entry-title"><a href="#">{{ $post->title }}</a></h2>
-							<span class="cat-links"><a href="#">Категория:{{ $post->category->categoryName }}</a></span>
+							<h2 class="entry-title">{{ $post->title }}</h2>
+							<span class="cat-links"><a href="category/{{$post->category->categoryName}}">Категория:{{ $post->category->categoryName }}</a></span>
               <!-- <span class="cat-links"></span> Сюда запихнёшь теги(Когда доделаешь!)-->
 						</div>
 						<div class="post-thumbnail-wrap">
