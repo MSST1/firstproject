@@ -13,7 +13,7 @@ class PostController extends Controller
   public function postList()
   {
     $posts = Post::all();
-    // return view('pages.postList', ['content' => $posts]);Список всех постов
+    return view('pages.postList', ['content' => $posts]);
   }
   public function categoryShow($categoryName)
   {
