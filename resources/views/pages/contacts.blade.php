@@ -14,20 +14,20 @@
           {{ csrf_field() }}
           <label class="row">
 						<div class="col-1-2">
-							@if ($errors->has('author'))
-								<div class="alert alert-danger text-center">{{ $errors->first('author') }}</div>
-							@endif
 							<div class="wrap-col">
 								<input type="text" name="author" id="author" placeholder="Как к вам обращаться?*" value="{{ old('author') }}"/>
 							</div>
+							@if ($errors->has('author'))
+								<div class="alert alert-danger text-center">{{ $errors->first('author') }}</div>
+							@endif
 						</div>
 						<div class="col-1-2">
-							@if ($errors->has('email'))
-								<div class="alert alert-danger text-center">{{ $errors->first('email') }}</div>
-							@endif
 							<div class="wrap-col">
 								<input type="text" name="email" id="email" placeholder="Ваш email*" value="{{ old('email') }}"/>
 							</div>
+							@if ($errors->has('email'))
+								<div class="alert alert-danger text-center">{{ $errors->first('email') }}</div>
+							@endif
 						</div>
 					</label>
 					<label class="row">
