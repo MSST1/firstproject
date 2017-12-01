@@ -11,7 +11,7 @@
               <label for="email" class="">E-mail</label>
               <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
               @if ($errors->has('email'))
-                {{ $errors->first('email') }}
+                <div class="alert alert-danger text-center">{{ $errors->first('email') }}</div>
               @endif
             </div>
           </div>
@@ -20,7 +20,7 @@
               <label for="password" class="">Пароль</label>
               <input id="password" type="password" class="form-control" name="password" required>
               @if ($errors->has('password'))
-                {{ $errors->first('password') }}
+                <div class="alert alert-danger text-center">{{ $errors->first('password') }}</div>
               @endif
             </div>
           </div>
