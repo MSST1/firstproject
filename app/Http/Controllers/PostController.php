@@ -12,14 +12,12 @@ use Session;
 
 class PostController extends Controller
 {
-  public function postList()
-  {
+  public function postList(){
     $posts = Post::all();
     return view('pages.postList', ['content' => $posts]);
   }
 
-  public function categoryShow($categoryName)
-  {
+  public function categoryShow($categoryName){
     $category = Category::where('categoryName','=',$categoryName)->first();
     if ($category == null){
       abort(404);
@@ -27,21 +25,18 @@ class PostController extends Controller
     $posts = Post::where('category_id','=',$category->id)->get();
     return view('pages.postList',['content' => $posts]);
   }
-  public function createPost()
 
-  {
+  public function createPost(){
     return view('pages.createPost');
   }
 
-  public function savePost(Request $request, Post $post)
-  {
+  public function savePost(Request $request, Post $post){
     $validator = Validator::make($request->all(),config('postValidation'));
     if ($validator->fails()){
       Session::flash('fail', 'Статья не создана!');
       return redirect('/posts/create')
                       ->withErrors($validator)
-                      ->withInput();
-    }
+                      ->withInput();}
     $category = Category::where('categoryName', $request->category)->first();
     $post->title = $request->title;
     $post->content = $request->content;
@@ -51,20 +46,17 @@ class PostController extends Controller
     return redirect('/posts');
   }
 
-  public function showPost($id)
-  {
+  public function showPost($id){
     $post = Post::findOrFail($id);
     return view('pages.showPost', ['post' => $post]);
   }
 
-  public function editPost($id)
-  {
+  public function editPost($id){
     $post = Post::find($id);
     // return view('pages.editPost', ['post' => $post]);
   }
 
-  public function updatePost(Request $request, $id)
-  {
+  public function updatePost(Request $request, $id){
     $this->validate($request,config('postValidation'));
     $post = Post::find($id);
     $post->title = $request->title;
@@ -73,8 +65,7 @@ class PostController extends Controller
     // return redirect('/posts');
   }
 
-  public function deletePost(Request $request)
-  {
+  public function deletePost(Request $request){
     $post = Post::findOrFail($request->id);
     $post->delete();
     return redirect('/posts');

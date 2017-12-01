@@ -26,7 +26,7 @@
 						</div>
 						<div class="entry-content">
 							<p>{{ $post->content }}</p>
-							<center><a class="button " href="posts/{{ $post->id }}">Подробнее</a></center>
+							<center><a class="button " href="/posts/{{ $post->id }}">Подробнее</a></center>
 						</div>
 					</div>
 				</article>
