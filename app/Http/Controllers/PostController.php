@@ -17,6 +17,7 @@ class PostController extends Controller
     $posts = Post::all();
     return view('pages.postList', ['content' => $posts]);
   }
+
   public function categoryShow($categoryName)
   {
     $category = Category::where('categoryName','=',$categoryName)->first();
@@ -27,9 +28,11 @@ class PostController extends Controller
     return view('pages.postList',['content' => $posts]);
   }
   public function createPost()
+
   {
     return view('pages.createPost');
   }
+
   public function savePost(Request $request, Post $post)
   {
     $validator = Validator::make($request->all(),config('postValidation'));
@@ -47,16 +50,19 @@ class PostController extends Controller
     $post->save();
     return redirect('/posts');
   }
+
   public function showPost($id)
   {
     $post = Post::findOrFail($id);
     return view('pages.showPost', ['post' => $post]);
   }
+
   public function editPost($id)
   {
     $post = Post::find($id);
     // return view('pages.editPost', ['post' => $post]);
   }
+
   public function updatePost(Request $request, $id)
   {
     $this->validate($request,config('postValidation'));
@@ -65,5 +71,12 @@ class PostController extends Controller
     $post->content = $request->text;
     $post->save();
     // return redirect('/posts');
+  }
+
+  public function deletePost(Request $request)
+  {
+    $post = Post::findOrFail($request->id);
+    $post->delete();
+    return redirect('/posts');
   }
 }

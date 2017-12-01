@@ -1,7 +1,13 @@
 <div id="cssmenu" class="align-center">
   <ul>
     <li id="homepage-link" class=""><a href="{{ route('homepage') }}"><span>Блог</span></a></li>
-    <li id="postList-link" class=""><a href="{{ route('postList') }}"><span>Статьи</span></a></li>
+    <li id="postList-link" class="last has-sub"><a href="{{ route('postList') }}"><span>Статьи</span></a>
+      <ul>
+        @foreach($categories as $category)
+          <li><a href="/category/{{$category->categoryName}}"><span>{{ $category->categoryName}}</span></a></li>
+        @endforeach
+      </ul>
+    </li>
     <li id="contact-link"  ><a href="{{ route('contacts') }}"><span>Контакты</span></a></li>
     @if (Auth::guest())
     <li class="last has-sub"><a href="{{ route('login') }}">Войти</span></a>

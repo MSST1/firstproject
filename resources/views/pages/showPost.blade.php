@@ -26,6 +26,16 @@
   									<div class="entry-content">
   										<p>{{ $post->content }}</p>
   									</div>
+                    <div class="buttons">
+                       <center>
+                         <a href="{{ $post->id }}/edit" class="btn btn-primary" role="button">Редактировать текст</a>
+                         <a href="#" class="btn btn-danger" role="button" onclick="event.preventDefault();  document.getElementById('deletePostForm').submit();">Удалить текст</a>
+                         <form id="deletePostForm" action="{{ route('deletePost') }}" method="post" style="display:none;">
+                           {{ csrf_field() }}
+                           <input type="hidden" name="id" value="{{ $post->id }}">
+                         </form>
+                       </center>
+                    </div>
   								</div>
   							</article>
 						</div>
