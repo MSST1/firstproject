@@ -1,69 +1,50 @@
 @extends('base')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Войти</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-mail</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Пароль</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Запомнить меня
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Войти
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Забыли пароль?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<section class="content-box zerogrid">
+  <div class="row wrap-box">
+    <h4 class="t-center">Авторизация</h4>
+      <form class="" method="POST" action="{{ route('login') }}">
+          {{ csrf_field() }}
+          <div class="row">
+            <div class="wrap-col">
+              <label for="email" class="">E-mail</label>
+              <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+              @if ($errors->has('email'))
+                <div class="alert alert-danger text-center">{{ $errors->first('email') }}</div>
+              @endif
             </div>
-        </div>
-    </div>
+          </div>
+          <div class="row">
+            <div class="wrap-col">
+              <label for="password" class="">Пароль</label>
+              <input id="password" type="password" class="form-control" name="password" required>
+              @if ($errors->has('password'))
+                <div class="alert alert-danger text-center">{{ $errors->first('password') }}</div>
+              @endif
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1-4" style="margin-left: 5px">
+                <label for="remember"> Запомнить меня</label>
+            </div>
+            <div class="col-1-4">
+                <input id="remember" style="margin-top:13px" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1-2 offset-1-4">
+              <div class="col-1-2">
+                <button type="submit" class="btn btn-success" style="width:100%">
+                    Войти
+                </button>
+              </div>
+                <a class="btn btn-link" href="{{ route('password.request') }}">
+                    Забыли пароль?
+                </a>
+            </div>
+          </div>
+      </form>
 </div>
+</section>
 @endsection

@@ -1,34 +1,54 @@
 @extends('base')
 
 @section('title')
- Создание поста
+  Создание новой статьи
 @endsection
 
 @section('content')
-  <div class="col-md-6">
-    <h1>Создать новый пост</h1>
-  </div>
-<form class="" action="{{route('savePost')}}" method="post">
-    {{ csrf_field() }}
-    <input class="form-control" type="text" name="title" placeholder="Тема поста"><br>
-    @if ($errors->has('title'))
-      <div class="alert alert-danger">{{ $errors->first('title') }}</div>
-    @endif
-    <textarea  class="form-control" name="text" rows="8" cols="80" placeholder="Текст поста"></textarea><br>
-    @if ($errors->has('text'))
-      <div class="alert alert-danger">{{ $errors->first('text') }}</div>
-    @endif
-    <div class="row">
-      <div class="col-md-12">
-        <select class="form-control" name="category">
-            @foreach($categories as $category)
-                <option label="">{{ $category->categoryName }}</option>
-            @endforeach
-        </select>
-      </div>
-    </div><br>
-    <div class="col-md-4 col-md-offset-4">
-       <input class="form-control btn-success" type="submit" name="" value="Принять">
-    </div>
-</form>
+<section class="content-box zerogrid">
+		<div class="row wrap-box"><!--Start Box-->
+			<h3 class="t-center" style="font-size:30px;margin: 10px 0 30px">Создать новую статью</h3>
+			<div id="createPostForm">
+        @include('widgets.__flashMessages')
+				<form name="form1" id="ff" method="post" action="{{ route('savePost') }}">
+          {{ csrf_field() }}
+          <label class="row">
+						<div class="wrap-col">
+							<div class="wrap-col">
+								<input type="text" name="title" id="title" placeholder="Тема статьи*" value="{{ old('title') }}"/>
+							</div>
+              @if ($errors->has('title'))
+                <div class="alert alert-danger text-center">{{ $errors->first('title') }}</div>
+              @endif
+						</div>
+						<div class="wrap-col">
+							<div class="wrap-col">
+                <textarea name="content" id="text" rows="4" cols="25" placeholder="Текст статьи*">{{  old('content') }}</textarea>
+							</div>
+              @if ($errors->has('content'))
+                <div class="alert alert-danger text-center">{{ $errors->first('content') }}</div>
+              @endif
+						</div>
+            <div class="wrap-col">
+              <div class="wrap-col">
+                <select class="" name="category">
+                    @foreach($categories as $category)
+                        <option label="">{{ $category->categoryName }}</option>
+                    @endforeach
+                </select>
+              </div>
+            </div>
+					</label>
+					<center><input class="sendButton" type="submit" name="submitcontact" value="Отправить!"></center>
+				</form>
+			</div>
+		</div>
+</section>
+@endsection
+
+@section('JS')
+<script type="text/javascript">
+    let activeMenuElement = document.querySelector("#postList-link");
+    activeMenuElement.classList.add("active");
+</script>
 @endsection

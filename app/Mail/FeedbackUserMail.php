@@ -30,6 +30,6 @@ class FeedbackUserMail extends Mailable
     {
       return $this->subject('Feedback')
                   ->from('onemoreblog@lmao.ru')
-                  ->view('mails.userFeedback');
+                  ->view('mails.userFeedbackThanks');
     }
 }
