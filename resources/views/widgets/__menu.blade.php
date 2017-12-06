@@ -6,7 +6,7 @@
         @foreach($categories as $category)
           <li><a href="/category/{{$category->categoryName}}"><span>{{ $category->categoryName}}</span></a></li>
         @endforeach
-          <li><a href="posts/create"><span>Создать статью</span></a></li>
+          <li><a href="/posts/create"><span>Создать статью</span></a></li>
       </ul>
     </li>
     <li id="contact-link"  ><a href="{{ route('contacts') }}"><span>Контакты</span></a></li>

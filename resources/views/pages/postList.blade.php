@@ -25,7 +25,7 @@
               @endif
 						</div>
 						<div class="entry-content">
-							<p>{{ $post->content }}</p>
+							<p>{{ $post->getSmallText() }}</p>
 							<center><a class="button " href="/posts/{{ $post->id }}">Подробнее</a></center>
 						</div>
 					</div>

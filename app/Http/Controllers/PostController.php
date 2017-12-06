@@ -52,17 +52,22 @@ class PostController extends Controller
   }
 
   public function editPost($id){
-    $post = Post::find($id);
-    // return view('pages.editPost', ['post' => $post]);
+    $post = Post::findOrFail($id);
+    return view('pages.editPost', ['post' => $post]);
   }
 
   public function updatePost(Request $request, $id){
-    $this->validate($request,config('postValidation'));
-    $post = Post::find($id);
+    $post = Post::findOrFail($id);
+    $validator = Validator::make($request->all(),config('postValidation'));
+    if ($validator->fails()){
+      Session::flash('fail', 'Статья не изменена');
+      return redirect()->back()
+                      ->withErrors($validator)
+                      ->withInput();}
     $post->title = $request->title;
-    $post->content = $request->text;
-    $post->save();
-    // return redirect('/posts');
+    $post->content = $request->content;
+    $post->update();
+    return redirect('/posts');
   }
 
   public function deletePost(Request $request){
