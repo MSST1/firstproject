@@ -66,7 +66,7 @@ class PostController extends Controller
                       ->withInput();}
     $post->title = $request->title;
     $post->content = $request->content;
-    $post->save();
+    $post->update();
     return redirect('/posts');
   }
 
