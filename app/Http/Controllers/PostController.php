@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
-use App\User;
+use App\Models\User;
 use Validator;
 use Session;
 

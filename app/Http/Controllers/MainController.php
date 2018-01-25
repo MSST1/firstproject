@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Mail\FeedbackUserMail;
 use App\Models\Post;
 use App\Models\Category;
-use App\User;
+use App\Models\User;
 use Validator;
 use Session;
 
