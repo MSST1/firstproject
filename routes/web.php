@@ -26,3 +26,7 @@ Route::prefix('posts')->group(function(){
   Route::get('{id}/edit', 'PostController@editPost')->name('editPost')->middleware('auth');
   Route::post('{id}/update', 'PostController@updatePost')->name('updatePost');
 });
+
+Route::prefix('admin')->group(function(){
+  Route::get('', 'AdminController@index')->name('adminHomepage');
+});

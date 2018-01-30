@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id'
     ];
 
     /**
@@ -33,5 +33,9 @@ class User extends Authenticatable
     public function posts()
     {
       return $this->hasMany('App\Models\Post');
+    }
+    public function role()
+    {
+      return $this->belongsTo('App\Models\Role');
     }
 }

@@ -49,8 +49,5 @@
 @endsection
 
 @section('JS')
-<script type="text/javascript">
-    let activeMenuElement = document.querySelector("#postList-link");
-    activeMenuElement.classList.add("active");
-</script>
+  @include('parts.menuScripts.__postsMenu')
 @endsection
