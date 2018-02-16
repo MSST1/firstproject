@@ -4,6 +4,8 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import Vue from 'vue';
+import AdminExample from './components/AdminExample.vue';
 
 require('./bootstrap');
 
@@ -15,8 +17,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+new Vue({
+    el: '#app',
+    components:{ AdminExample },
 
-const app = new Vue({
-    el: '#app'
 });

@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>adminpage</title>
     <link rel="stylesheet" href={{asset('css/adminStyles.css')}}>
     <link rel="stylesheet" href={{asset('font-awesome/css/font-awesome.css')}}>
@@ -25,8 +26,10 @@
       topmenu
     </div>
     <div class="content">
-          @yield('content')
+          <div id="app">
+            <admin-example></admin-example>
+          </div>
     </div>
-
+    <script src="{{ mix('js/app.js') }}"></script>
   </body>
 </html>
