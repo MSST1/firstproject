@@ -28,5 +28,5 @@ Route::prefix('posts')->group(function(){
 });
 
 Route::prefix('admin')->group(function(){
-  Route::get('', 'AdminController@index')->name('adminHomepage');
+  Route::get('', 'Admin\AdminController@index')->name('adminHomepage');
 });

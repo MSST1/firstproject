@@ -5,11 +5,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 import Vue from 'vue';
+import VueResource from 'vue-resource';
+
 import AdminExample from './components/AdminExample.vue';
 
 require('./bootstrap');
 
 window.Vue = require('vue');
+Vue.use(VueResource);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
