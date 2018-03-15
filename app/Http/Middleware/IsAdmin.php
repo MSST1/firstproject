@@ -16,6 +16,9 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
+        if (Auth::user() == null){
+          abort(404);
+        }
         if(Auth::user()->role_id != 1){
           abort(404);
         }

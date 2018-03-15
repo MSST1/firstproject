@@ -6,8 +6,11 @@
  */
 import Vue from 'vue';
 import VueResource from 'vue-resource';
+import {router} from './routes.js';
 
+import AdminLayout from './components/AdminLayout.vue';
 import AdminExample from './components/AdminExample.vue';
+import AdminNavigation from './components/AdminNavigation.vue';
 
 require('./bootstrap');
 
@@ -22,6 +25,7 @@ Vue.use(VueResource);
 
 new Vue({
     el: '#app',
-    components:{ AdminExample },
+    components:{AdminLayout, AdminExample, AdminNavigation},
+    router
 
 });

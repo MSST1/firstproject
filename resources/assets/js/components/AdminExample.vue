@@ -7,6 +7,7 @@
                       <table class="table table-bordered table-stripped">
                         <thead>
                           <tr>
+                            <td>№</td>
                             <td>user id</td>
                             <td>email</td>
                             <td>login</td>
@@ -14,18 +15,19 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr v-for="user in users">
-                            <td>{{user.id}}</td>
-                            <td>{{user.email}}</td>
-                            <td>{{user.name}}</td>
-                            <td>{{userRoles[user.role_id-1].role}}</td>
+                          <tr v-for="user,index in users">
+                            <td>{{ index }}</td>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ userRoles[user.role_id-1].role }}</td>
                           </tr>
                         </tbody>
                       </table>
                     </div><br>
 
                     <div>
-                        <sub-example></sub-example>
+                      <router-link :to="{ name: 'home', params: {} }">To Main page</router-link>
                     </div>
                 </div>
             </div>

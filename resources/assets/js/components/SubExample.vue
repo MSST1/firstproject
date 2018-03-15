@@ -1,5 +1,9 @@
 <template>
-      <div>SubComponent ready</div>
+  <div class="">
+    <p>SubComponent ready</p>
+    <router-view></router-view>
+    <router-link :to="{ name: 'users', params: {} }">To Users</router-link>
+  </div>
 </template>
 
 <script>

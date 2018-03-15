@@ -14,29 +14,11 @@
     </script>
   </head>
   <body>
-    <div class="menu">
-      <div class="logo">
-      </div>
-      <div class="sidebarMenu">
-        <div class="menuItem">
-          <span class="fa fa-user fa-2x"></span><br>
-          users
-        </div>
-        <div class="menuItem">
-          <span class="fa fa-trash fa-2x"></span><br>
-          posts
-        </div>
-      </div>
-    </div>
-    <div class="topMenu">
-      topmenu
-    </div>
-    <div class="content">
-          <div id="app">
-            <admin-example
-              route_testuser="{{ route('admin_users.index') }}"
-            ></admin-example>
-          </div>
+    <div id="app">
+      <admin-layout
+        asset="{{ asset('public') }}"
+        route_testuser="{{ route('admin_users.index') }}"
+      ></admin-layout>
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
   </body>
