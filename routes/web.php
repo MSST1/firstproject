@@ -27,6 +27,4 @@ Route::prefix('posts')->group(function(){
   Route::post('{id}/update', 'PostController@updatePost')->name('updatePost');
 });
 
-Route::prefix('admin')->group(function(){
-  Route::get('', 'AdminController@index')->name('adminHomepage');
-});
+Route::get('admin', 'Admin\AdminController@index')->name('adminHomepage');
